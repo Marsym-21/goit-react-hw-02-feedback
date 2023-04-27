@@ -11,7 +11,10 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
+  options = false;
+
   onLeaveFeedback = e => {
+    this.options = true;
     this.onAddFeedback(e);
     this.countTotalFeedback();
     this.countPositiveFeedbackPercentage();
@@ -22,7 +25,9 @@ class Feedback extends React.Component {
     console.log(object);
     switch (object) {
       case 'good':
-        this.setState(prevState => ({ good: prevState.good + 1 }));
+        this.setState(prevState => {
+          return { good: prevState.good + 1 };
+        });
         break;
       case 'neutral':
         this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
@@ -64,6 +69,7 @@ class Feedback extends React.Component {
           bad={bad}
           total={this.total}
           positivePercentage={this.positivePercentage}
+          options={this.options}
         />
       </div>
     );
@@ -79,4 +85,5 @@ class Feedback extends React.Component {
     addBad: PropTypes.string.isRequired,
   };
 }
+
 export default Feedback;

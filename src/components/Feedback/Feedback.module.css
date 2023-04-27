@@ -25,6 +25,10 @@
   margin: 0;
   font-size: 20px;
 }
+.statistics_textNo {
+  font-size: 20px;
+  margin: 0;
+}
 
 .good {
   background-color: #2efc0a;

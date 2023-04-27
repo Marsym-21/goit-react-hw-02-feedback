@@ -16,8 +16,6 @@ class Feedback extends React.Component {
   onLeaveFeedback = e => {
     this.options = true;
     this.onAddFeedback(e);
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
   onAddFeedback = e => {
@@ -65,10 +63,9 @@ class Feedback extends React.Component {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    positive: PropTypes.number.isRequired,
-    addGood: PropTypes.string.isRequired,
-    addNeutral: PropTypes.string.isRequired,
-    addBad: PropTypes.string.isRequired,
+    options: PropTypes.bool.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
+    onLeaveFeedback: PropTypes.string.isRequired,
   };
 }
 

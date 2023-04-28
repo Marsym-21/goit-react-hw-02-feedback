@@ -2,11 +2,11 @@ import css from './Feedback.module.css';
 import Notification from './Notification';
 
 const Statistics = props => {
-  const { good, neutral, bad, total, positivePercentage, options } = props;
+  const { good, neutral, bad, total, positivePercentage, complite } = props;
   return (
     <div className={css.statistics}>
       <h1 className={css.profile_title}>Statistics</h1>
-      {options ? (
+      {complite ? (
         <ul className={css.statistics_list}>
           <li className={css.statistics_item}>Good: {good}</li>
           <li className={css.statistics_item}>Neutral: {neutral}</li>

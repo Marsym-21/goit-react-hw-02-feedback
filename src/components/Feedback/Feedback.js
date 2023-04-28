@@ -11,10 +11,10 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
-  options = false;
+  complite = false;
 
   onLeaveFeedback = e => {
-    this.options = true;
+    this.complite = true;
     this.onAddFeedback(e);
   };
 
@@ -46,14 +46,17 @@ class Feedback extends React.Component {
     return (
       <div className={css.profile}>
         <h1 className={css.profile_title}>Please leave feedback</h1>
-        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
+        <FeedbackOptions
+          onLeaveFeedback={this.onLeaveFeedback}
+          options={this.state}
+        />
         <Statistics
           good={good}
           neutral={neutral}
           bad={bad}
           total={total}
           positivePercentage={positivePercentage}
-          options={this.options}
+          complite={this.complite}
         />
       </div>
     );
@@ -63,7 +66,7 @@ class Feedback extends React.Component {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    options: PropTypes.bool.isRequired,
+    complite: PropTypes.bool.isRequired,
     positivePercentage: PropTypes.number.isRequired,
     onLeaveFeedback: PropTypes.string.isRequired,
   };

@@ -1,32 +1,21 @@
 import css from './Feedback.module.css';
+import clsx from 'clsx';
 
 const FeedbackOptions = props => {
-  const { onLeaveFeedback } = props;
+  const { onLeaveFeedback, options } = props;
+  const optionsArray = Object.keys(options);
   return (
     <div className={css.profile_box_btn}>
-      <button
-        className={`${css.profile_btn} ${css.good}`}
-        type="button"
-        onClick={onLeaveFeedback}
-      >
-        Good
-      </button>
-
-      <button
-        className={`${css.profile_btn} ${css.neutral}`}
-        type="button"
-        onClick={onLeaveFeedback}
-      >
-        Neutral
-      </button>
-
-      <button
-        className={`${css.profile_btn} ${css.bad}`}
-        type="button"
-        onClick={onLeaveFeedback}
-      >
-        Bad
-      </button>
+      {optionsArray.map(option => (
+        <button
+          key={option}
+          className={clsx(css.profile_btn, css[option])}
+          type="button"
+          onClick={onLeaveFeedback}
+        >
+          {option}
+        </button>
+      ))}
     </div>
   );
 };

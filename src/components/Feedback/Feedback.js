@@ -20,7 +20,6 @@ class Feedback extends React.Component {
 
   onAddFeedback = e => {
     const object = e.target.textContent.toLocaleLowerCase();
-    console.log(object);
     switch (object) {
       case 'good':
         this.setState(prevState => {
